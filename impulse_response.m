@@ -6,10 +6,13 @@ function [ h,t ] = impulse_response( x, y, fs )
 %           fs, sampling frequency of measurements
 %   outputs:    h, calculated impulse response
 
+% Vicki Moran
+% 9/22/18
 [X,f] = fdomain(x,fs);
 [Y,f] = fdomain(y,fs);
-H = X./Y;   % the calculated frequency response
+H = Y./X;   % the calculated frequency response
 [h,t] = tdomain(H,fs);
+plot(t,h);
 
 end
 
